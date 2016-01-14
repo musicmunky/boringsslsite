@@ -29,7 +29,12 @@ p {
 
 .entrydiv {
 	height:50px;
-	padding-bottom:10px;
+	padding-bottom:5px;
+	padding-top:5px;
+}
+
+.altbc {
+	background-color:#EFEFEF;
 }
 
 .entrylabel {
