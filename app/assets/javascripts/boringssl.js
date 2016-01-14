@@ -9,24 +9,24 @@ function calc(v) {
 		return false;
 	}
 
-	var FPTM = 4300000;
-	var MILE = 5280;
-	var MSQR = 27878400;
-	var INCH = 12;
-	var ISQR = 144;
-	var ICUB = 1728;
-	var ETOS = 93000000;
-	var ETOM = 238900;
-	var CIRC = 24902;
-	var DWTH = 2.61;
-	var DLEN = 6.14;
-	var DHGT = 0.0043;
-	var USAR = 3806000;
-	var UGDP = 16770000000000;
-	var WGDP = 77868000000000;
-	var SECS = 86400;
-	var YEAR = 365.25;
-	var WRLD = 7400000000
+	var FPTM = 4300000;			//Four point three million dollars
+	var MILE = 5280;			//feet per mile
+	var MSQR = 27878400;		//feet per square mile
+	var INCH = 12;				//inches per foot
+	var ISQR = 144;				//square inches per square foot
+	var ICUB = 1728;			//cubic inches per cubic foot
+	var ETOS = 93000000;		//distance from earth to sun, in miles
+	var ETOM = 238900;			//distance from earth to moon, in miles
+	var CIRC = 24902;			//circumference of the earth at the equator, in miles
+	var DWTH = 2.61;			//width of a one dollar bill
+	var DLEN = 6.14;			//length of a dollar bill
+	var DHGT = 0.0043;			//height of a dollar bill
+	var USAR = 3806000;			//area of the US, in square miles
+	var UGDP = 16770000000000;	//US GDP for 2013
+	var WGDP = 77868000000000;	//Global GDP for 2014
+	var SECS = 86400;			//seconds in a day
+	var YEAR = 365.25;			//legth of a calendar year, in days
+	var WRLD = 7400000000		//world population
 
 	var mult = (!v.value || v.value == "" || v.value == 0 || v.value == '0') ? 0 : v.value;
 	try {
@@ -96,3 +96,4 @@ function cubeRoot(x) {
 	var y = Math.pow(Math.abs(x), 1/3);
 	return x < 0 ? -y : y;
 }
+
