@@ -1,0 +1,108 @@
+*:before, *:after { box-sizing: border-box; }
+html { min-height:100%; }
+
+html, body { width: 100%;margin: 0;padding: 0;cursor:default;font-family:Trebuchet MS;background-color:#FEFEFE; }
+
+h3 {
+	margin-top:0px;
+	color:#444;
+	border-bottom:1px solid #DDD;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	width:100%;
+	text-align:center;
+	font-size:24px;
+}
+
+p {
+	line-height:24px;
+	text-align:center;
+}
+
+#dollardiv {
+	margin-left:auto;
+	margin-right:auto;
+	width:800px;
+	margin-top:50px;
+/* 	height:250px; */
+}
+
+.entrydiv {
+	height:50px;
+	padding-bottom:10px;
+}
+
+.entrylabel {
+	display:block;
+	float:left;
+	width:50%;
+	text-align:right;
+	line-height:50px;
+	height:50px;
+	font-size:18px;
+	color:#444;
+}
+
+.calclabel {
+	display:block;
+	float:left;
+	text-align: left;
+    padding-left: 10px;
+    width: 48%;
+	line-height:50px;
+	height:50px;
+	font-size:18px;
+	color:#444;
+}
+
+.entrypeople {
+	line-height: 20px;
+    margin-top: 9px;
+    height: 20px;
+    margin-left: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-family: Trebuchet MS;
+    background-color: #EEE;
+}
+
+.schedule_note {
+	margin-top:10px;
+	margin-bottom:5px;
+	padding-left:5px;
+	background-color:#fff;
+	color:#222;
+	border: 1px solid #ddd;
+	-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,200,.07);
+	box-shadow: 0 1px 2px 0 rgba(0,0,200,.07);
+	padding:12px;
+}
+
+.field {
+	float: left;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.txt100 {
+	width:100% !important;
+	resize:none;
+	border:1px solid #DDD;
+}
+
+.fl { float:left; }
+
+.fr { float:right; }
+
+.w50fl { width:50%; float:left; }
+.innerw50fl { width:50%; float:left; }
+.w100fl { width:100%; float:left; }
+.h100fl { height:100%; float:left; }
+
+.container { height: auto; 	width: 100%; }
+
+@media (max-width: 767px) {	#main { width:100%;padding:10px;margin-top:100px; }}

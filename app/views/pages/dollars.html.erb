@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Can Everyone Have $4.3 Million?</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="description" content="Can you really give everyone in the US 4.3 million dollars?">
+		<meta name="keywords" content="Math,Currency,Dollars,Lottery,Powerball,Comparison,JavaScript">
+		<meta name="author" content="Tim Andrews">
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body onLoad="calc(document.getElementById('numpeople'))">
+		<div id="dollardiv">
+			<h3>Can You Give Everyone $4.3 Million?</h3>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">How Many People?</span>
+				<input type="text" class="entrypeople" id="numpeople" name="numpeople" onkeyup="calc(this)" value="300000000" />
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Total Amount?</span>
+				<span class="calclabel" id="total_amount">$0</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Amount Per Person in the World?</span>
+				<span class="calclabel" id="person">$0</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Percent of 2013 US GDP?</span>
+				<span class="calclabel" id="usgdp">0%</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Percent of 2014 World GDP?</span>
+				<span class="calclabel" id="worldgdp">0%</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Height of One Dollar Bills?</span>
+				<span class="calclabel" id="height">0 Miles</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Trips from Earth to Moon?</span>
+				<span class="calclabel" id="moon">0 Trips</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Trips from Earth to Sun?</span>
+				<span class="calclabel" id="sun">0 Trips</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Laid End-To-End, Circle the Earth?</span>
+				<span class="calclabel" id="equator">0 Times</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Total Surface Area?</span>
+				<span class="calclabel" id="area">0 Square Miles</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Compared to Area of US?</span>
+				<span class="calclabel" id="ussize">0 Times the Size of the US</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Cube of One Dollar Bills?</span>
+				<span class="calclabel" id="cube">0 Feet Per Side</span>
+			</div>
+			<div class="w100fl entrydiv">
+				<span class="entrylabel">Number of Years, at One Dollar Per Second?</span>
+				<span class="calclabel" id="years">0 Years</span>
+			</div>
+		</div>
+	</"setTimeout('sendToGoogle()', 5000)">
+</html>
