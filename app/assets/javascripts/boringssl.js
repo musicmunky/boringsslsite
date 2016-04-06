@@ -81,9 +81,7 @@ function calc(v) {
 	}
 }
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+function numberWithCommas(x) { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
 
 function roundTo(num, exp) {
 	var rnd = num * Math.pow(10, exp);

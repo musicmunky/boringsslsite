@@ -17,7 +17,16 @@ Rails.application.routes.draw do
 	get 'dollars', to: 'pages#dollars', as: :dollars
 	get 'pages/dollars'
 
+	get 'wine', to: 'pages#wine', as: :wine
+	get 'pages/wine'
+
 	get 'pages/index'
 	root 'pages#index'
+
+	resources :pages do
+		member do
+			post "searchWines"
+		end
+	end
 
 end
