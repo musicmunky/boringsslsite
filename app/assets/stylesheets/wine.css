@@ -262,4 +262,9 @@ p {
 	.form-control {
 		padding: 2px !important;
 	}
+	.clearbtn {
+		width:100px;
+		margin-right:10px;
+		float:right;
+	}
 }

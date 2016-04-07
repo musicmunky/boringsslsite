@@ -8,7 +8,7 @@ jQuery( document ).ready(function() {
 
 //https://www.datatables.net/extensions/rowreorder/examples/initialisation/responsive.html
 //https://datatables.net/examples/basic_init/dom.html
-	var wine_col_defs = [{ "targets": [ 0 ], "searchable": false, "orderable": false }];
+	var wine_col_defs = [{ "targets": [ 0 ], "searchable": false, "orderable": false }, { "targets": [ 5 ], "visible": false, "searchable": true }];
 	$('#wine_results_table').DataTable({
 		"dom": '<"top"fli>rt<"bottom"p><"clear">',
 		order: [[ 1, "asc" ]],
@@ -159,15 +159,15 @@ function runSearchResponse(h)
 				var rowNode = tbl.row.add( [
 					"<img class='wine_image' src='" + img + "' />",
 					"<a href='http://www.benchmarkwine.com" + wine['link'] + "' target='_blank'>" + wine['name'] + "</a>",
-					wine['details']['region'] + "<br>" + wine['details']['varietal'] + "<br>" + wine['details']['size'] + "<br>" + wine['details']['vintage'],
-					revstr,
 					wine['price'],
-					avlstr
+					revstr,
+					avlstr,
+					wine['details']['region'] + "<br>" + wine['details']['varietal'] + "<br>" + wine['details']['size'] + "<br>" + wine['details']['vintage']
 				] ).draw( false ).node();
 				$( rowNode ).find('td').eq(0).addClass('img_td_class');
+				$( rowNode ).find('td').eq(2).addClass('price_td_class');
 				$( rowNode ).find('td').eq(3).addClass('score_td_class');
-				$( rowNode ).find('td').eq(4).addClass('price_td_class');
-				$( rowNode ).find('td').eq(5).addClass('avail_td_class');
+				$( rowNode ).find('td').eq(4).addClass('avail_td_class');
 			}
 		}
 

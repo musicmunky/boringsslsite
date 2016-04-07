@@ -30,16 +30,16 @@ class WineRequest
 		begin
 			params = {
 				:utf8 => "✓",
-				:varietal => search_params['varietal'],
-				:country => search_params['country'],
-				:region => search_params['region'],
-				:scores => search_params['scores'],
-				:price_range => search_params['price_range'],
-				:size => search_params['size'],
-				:vintage => search_params['vintage'],
-				:per_page => "100",
-				:sort_by => "a_to_z"
-				}
+				:varietal		=> search_params['varietal'],
+				:country		=> search_params['country'],
+				:region			=> search_params['region'],
+				:scores			=> search_params['scores'],
+				:price_range	=> search_params['price_range'],
+				:size			=> search_params['size'],
+				:vintage		=> search_params['vintage'],
+				:per_page		=> "100",
+				:sort_by		=> "a_to_z"
+			}
 
 			request = send_request(params)
 			html_doc = Nokogiri::HTML(request)
@@ -91,6 +91,9 @@ class WineRequest
 			tmphash['available']	= result.css("li.available").text.strip
 			tmphash['in_stock']		= result.css("li.stock span").text.strip
 			tmphash['price']		= result.css("li.price").text.strip
+
+			prc = result.css("li.price").text.strip
+			tmphash['price'] = prc.gsub(/^starting at /i, '')
 
 			det_hash = { 'region' => '', 'varietal' => '', 'size' => '', 'vintage' => '' }
 			dtl = result.css("ul.details li")
