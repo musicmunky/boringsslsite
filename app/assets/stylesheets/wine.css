@@ -27,6 +27,16 @@ p {
 	text-align:center;
 }
 
+.spinner {
+	width:18px;
+	margin-right:-21px;
+	display:none;
+}
+
+.showhidespinner {
+	display:inline-block;
+}
+
 #wine_results_table_wrapper {
 	margin-bottom:50px;
 }
@@ -36,26 +46,34 @@ p {
 .es-list { background: #fff !important; }
 
 .dataTables_filter input {
-    background-color: #F3F3F3;
-    border: none;
+	background-color: #F3F3F3;
+    border: 1px solid #CCC;
     text-decoration: none;
     padding: 5px 10px;
+    border-radius: 4px;
 }
 
 .searchbtn {
-	margin-left:calc(50% - 50px);
-	width:100px;
+	width:175px;
+	margin-left:10px;
+	float:left;
+}
+
+.clearbtn {
+	width:175px;
+	margin-right:10px;
+	float:right;
 }
 
 .srchinputdiv {
 	width:100%;
 	float:left;
 	text-align:center;
-	padding-left:calc(50% - 60px);
+	padding-left:24%;
 }
 
 .srchinput {
-	width:50px;
+	width:30%;
 	float:left;
 }
 
@@ -63,6 +81,7 @@ p {
 	display:block;
 	float:left;
 	width:20px;
+	padding-top:5px;
 }
 
 .searchdiv {
@@ -75,7 +94,7 @@ p {
 	padding-top:20px;
 }
 
-.entrydiv {
+.entrydiv_row1 {
 	height: 80px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -83,6 +102,16 @@ p {
     float: left;
 	text-align:center;
 }
+
+.entrydiv_row2 {
+	height: 80px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+	width:33%;
+    float: left;
+	text-align:center;
+}
+
 
 .img_td_class {
 	width:120px;
@@ -202,10 +231,35 @@ p {
 .w100fl { width:100%; float:left; }
 .h100fl { height:100%; float:left; }
 
-/* .container { height: auto; 	width: 100%; } */
-
 /* @media (max-width: 767px) {	#main { width:100%;padding:10px;margin-top:100px; }} */
-@media (min-width: 768px)
-.bootstrap-select {
-    width: 160px !important;
+/* ipad */
+/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+	img { max-width: 100%; }
+}*/
+
+@media (min-width : 768px) and (max-width : 1024px) {
+	.btn-group,
+	.bootstrap-select {
+    	width: 160px !important;
+	}
+}
+
+@media (min-width : 481px) and (max-width : 767px) {
+	.btn-group,
+	.bootstrap-select {
+    	width: 100px !important;
+	}
+}
+
+@media (min-width : 320px) and (max-width : 480px) {
+	.btn-group,
+	.bootstrap-select {
+    	width: 70px !important;
+	}
+	.srchinputdiv {
+		padding-left:10%;
+	}
+	.form-control {
+		padding: 2px !important;
+	}
 }

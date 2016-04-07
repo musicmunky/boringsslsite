@@ -18,6 +18,8 @@
 //= require jquery.dataTables.min
 //= require bootstrap.min
 //= require bootstrap-select.min
+//= require dataTables.responsive.min
+//= require dataTables.rowReorder.min
 //= require turbolinks
 //= require fusionlib
 //= require wine
