@@ -90,7 +90,6 @@ class WineRequest
 			tmphash['link']			= result.at_css("h2 a")['href']
 			tmphash['available']	= result.css("li.available").text.strip
 			tmphash['in_stock']		= result.css("li.stock span").text.strip
-			tmphash['price']		= result.css("li.price").text.strip
 
 			prc = result.css("li.price").text.strip
 			tmphash['price'] = prc.gsub(/^starting at /i, '')
@@ -113,7 +112,6 @@ class WineRequest
 				end
 			end
 			tmphash['reviews'] = cnd_hash
-
 			tmparry.push(tmphash)
 		end
 		return tmparry
@@ -122,7 +120,6 @@ end
 
 
 =begin
-
 http://ruby.bastardsbook.com/chapters/html-parsing/
 http://stackoverflow.com/questions/4232345/get-div-nested-in-div-element-using-nokogiri
 
@@ -133,18 +130,10 @@ http://stackoverflow.com/questions/4232345/get-div-nested-in-div-element-using-n
 			<a href="/wines/11674-pichon-lalande-1995">Pichon Lalande 1995</a>
 		</h2>
 		<ul class='details'>
-			<li>
-				France - Bordeaux
-			</li>
-			<li>
-				Red Bordeaux Blends
-			</li>
-			<li>
-				750ml
-			</li>
-			<li>
-				1995
-			</li>
+			<li>France - Bordeaux</li>
+			<li>Red Bordeaux Blends</li>
+			<li>750ml</li>
+			<li>1995</li>
 		</ul>
 		<ul class='condition'>
 			<li>
@@ -159,15 +148,9 @@ http://stackoverflow.com/questions/4232345/get-div-nested-in-div-element-using-n
 			</li>
 		</ul>
 		<ul class='pricing group'>
-			<li class='available'>
-				8 Bottles Available
-			</li>
-			<li class='price'>
-				Starting at $199.00
-			</li>
-			<li class='view'>
-				<a href="/wines/11674-pichon-lalande-1995">View Wines</a>
-			</li>
+			<li class='available'>8 Bottles Available</li>
+			<li class='price'>Starting at $199.00</li>
+			<li class='view'><a href="/wines/11674-pichon-lalande-1995">View Wines</a></li>
 		</ul>
 	</div>
 </div>

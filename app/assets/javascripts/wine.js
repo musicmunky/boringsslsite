@@ -24,19 +24,14 @@ jQuery( document ).ready(function() {
 
 function clearForm()
 {
-
-	/*FUSION.get.node("varietal").value = "";
-	FUSION.get.node("country").value = "";
-	FUSION.get.node("region").value = "";
-	FUSION.get.node("size").value = "";*/
 	$('.selectpicker').selectpicker('val', '');
-	FUSION.get.node("score_low").value = "";
-	FUSION.get.node("score_high").value = "";
-	FUSION.get.node("price_low").value = "";
-	FUSION.get.node("price_high").value = "";
-	FUSION.get.node("vintage_low").value = "";
-	FUSION.get.node("vintage_high").value = "";
+	var inputs = ["score", "price", "vintage"];
+	for(var i = 0; i < inputs.length; i++) {
+		FUSION.get.node(inputs[i] + "_low").value = "";
+		FUSION.get.node(inputs[i] + "_high").value = "";
+	}
 	var tbl = $('#wine_results_table').DataTable();
+	tbl.search('').columns().search('');
 	tbl.clear().draw();
 }
 
@@ -44,7 +39,6 @@ function clearForm()
 function runParamSearch()
 {
 	try {
-
 		$("#loading_spinner").toggleClass('showhidespinner');
 
 		var vrtl = FUSION.get.node("varietal").value;
@@ -170,8 +164,6 @@ function runSearchResponse(h)
 				$( rowNode ).find('td').eq(4).addClass('avail_td_class');
 			}
 		}
-
-// 		FUSION.get.node("fLabel").textContent = (nums > 1) ? "Filter " + nums + " Results:" : "Filter Results:";
 	}
 	catch(err) {
 		FUSION.error.logError(err);
