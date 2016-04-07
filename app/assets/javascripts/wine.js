@@ -133,7 +133,12 @@ function runSearchResponse(h)
 			var avlstr = "";
 			for(var i = 0; i < wines.length; i++)
 			{
-				wine = wines[i];
+				//resetting to blank here
+				revstr	= "";
+				img		= "";
+				avlstr	= "";
+				wine	= wines[i];
+
 				if(FUSION.get.objSize(wine['reviews']) > 0)
 				{
 					revarr = [];
