@@ -8,9 +8,9 @@ jQuery( document ).ready(function() {
 
 //https://www.datatables.net/extensions/rowreorder/examples/initialisation/responsive.html
 //https://datatables.net/examples/basic_init/dom.html
-	var wine_col_defs = [{ "targets": [ 0 ], "searchable": false, "orderable": false }, { "targets": [ 5 ], "visible": false, "searchable": true }];
+	var wine_col_defs = [{ "targets": [ 0 ], "searchable": false, "orderable": false }, { "targets": [ 6 ], "visible": false, "searchable": true }];
 	$('#wine_results_table').DataTable({
-		"dom": '<"top"fli>rt<"bottom"p><"clear">',
+		dom: '<"top"fli>rt<"bottom"p><"clear">',
 		order: [[ 1, "asc" ]],
 		columnDefs: wine_col_defs,
 		rowReorder: {
@@ -25,6 +25,7 @@ jQuery( document ).ready(function() {
 function clearForm()
 {
 	$('.selectpicker').selectpicker('val', '');
+	FUSION.get.node("keyword_search").value = "";
 	var inputs = ["score", "price", "vintage"];
 	for(var i = 0; i < inputs.length; i++) {
 		FUSION.get.node(inputs[i] + "_low").value = "";
@@ -33,6 +34,38 @@ function clearForm()
 	var tbl = $('#wine_results_table').DataTable();
 	tbl.search('').columns().search('');
 	tbl.clear().draw();
+}
+
+
+function runKeywordSearch()
+{
+	try {
+		var srch = FUSION.get.node("keyword_search").value;
+		if(FUSION.lib.isBlank(srch)) {
+			return false;
+		}
+
+		$("#loading_spinner").toggleClass('showhidespinner');
+
+		var tbl = $('#wine_results_table').DataTable();
+		tbl.clear().draw();
+
+		var info = {
+			"type": "POST",
+			"path": "/pages/1/searchWines",
+			"data": {
+				"type": "keyword",
+				"search": srch
+			},
+			"func": runSearchResponse
+		};
+		FUSION.lib.ajaxCall(info);
+	}
+	catch(err) {
+		$("#loading_spinner").toggleClass('showhidespinner');
+		FUSION.error.logError(err);
+	}
+	return false;
 }
 
 
@@ -95,6 +128,7 @@ function runParamSearch()
 			"type": "POST",
 			"path": "/pages/1/searchWines",
 			"data": {
+				"type":			"parameter",
 				"varietal":		(vrtl == "All" || vrtl == "all") ? "" : vrtl.toLowerCase(),
 				"country":		(ctry == "All" || ctry == "all") ? "" : ctry.toLowerCase(),
 				"region":		(regn == "All" || regn == "all") ? "" : regn.toLowerCase(),
@@ -111,6 +145,7 @@ function runParamSearch()
 		$("#loading_spinner").toggleClass('showhidespinner');
 		FUSION.error.logError(err);
 	}
+	return false;
 }
 
 
@@ -123,14 +158,14 @@ function runSearchResponse(h)
 
 		if(nums > 0)
 		{
-			var tbl = $('#wine_results_table').DataTable();
-			var wines = hash['wine_results'];
-			var wine = {};
-			var revs = {};
-			var revarr = [];
-			var revstr = "";
-			var img = "";
-			var avlstr = "";
+			var tbl		= $('#wine_results_table').DataTable();
+			var wines	= hash['wine_results'];
+			var wine	= {};
+			var revs	= {};
+			var revarr	= [];
+			var revstr	= "";
+			var img		= "";
+			var avlstr	= "";
 			for(var i = 0; i < wines.length; i++)
 			{
 				//resetting to blank here
@@ -158,15 +193,17 @@ function runSearchResponse(h)
 				var rowNode = tbl.row.add( [
 					"<img class='wine_image' src='" + img + "' />",
 					"<a href='http://www.benchmarkwine.com" + wine['link'] + "' target='_blank'>" + wine['name'] + "</a>",
+					wine['details']['vintage'],
 					wine['price'],
 					revstr,
 					avlstr,
 					wine['details']['region'] + "<br>" + wine['details']['varietal'] + "<br>" + wine['details']['size'] + "<br>" + wine['details']['vintage']
 				] ).draw( false ).node();
 				$( rowNode ).find('td').eq(0).addClass('img_td_class');
-				$( rowNode ).find('td').eq(2).addClass('price_td_class');
-				$( rowNode ).find('td').eq(3).addClass('score_td_class');
-				$( rowNode ).find('td').eq(4).addClass('avail_td_class');
+				$( rowNode ).find('td').eq(2).addClass('vintg_td_class');
+				$( rowNode ).find('td').eq(3).addClass('price_td_class');
+				$( rowNode ).find('td').eq(4).addClass('score_td_class');
+				$( rowNode ).find('td').eq(5).addClass('avail_td_class');
 			}
 		}
 	}
@@ -174,5 +211,6 @@ function runSearchResponse(h)
 		FUSION.error.logError(err);
 	}
 	$("#loading_spinner").toggleClass('showhidespinner');
+	return false;
 }
 

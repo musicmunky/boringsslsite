@@ -28,18 +28,30 @@ class WineRequest
 
 		result = { 'number_of_results' => 0, 'wine_results' => [] }
 		begin
-			params = {
-				:utf8 => "✓",
-				:varietal		=> search_params['varietal'],
-				:country		=> search_params['country'],
-				:region			=> search_params['region'],
-				:scores			=> search_params['scores'],
-				:price_range	=> search_params['price_range'],
-				:size			=> search_params['size'],
-				:vintage		=> search_params['vintage'],
-				:per_page		=> "100",
-				:sort_by		=> "a_to_z"
-			}
+			params = {}
+
+			puts "Performing #{search_params['type']} search..."
+			if search_params['type'] == "keyword"
+				params = {
+					:utf8 => "✓",
+					:search		=> search_params['search'],
+					:per_page	=> "100",
+					:sort_by	=> "a_to_z"
+				}
+			else
+				params = {
+					:utf8 => "✓",
+					:varietal		=> search_params['varietal'],
+					:country		=> search_params['country'],
+					:region			=> search_params['region'],
+					:scores			=> search_params['scores'],
+					:price_range	=> search_params['price_range'],
+					:size			=> search_params['size'],
+					:vintage		=> search_params['vintage'],
+					:per_page		=> "100",
+					:sort_by		=> "a_to_z"
+				}
+			end
 
 			request = send_request(params)
 			html_doc = Nokogiri::HTML(request)
