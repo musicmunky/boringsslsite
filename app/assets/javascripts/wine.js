@@ -14,7 +14,7 @@ jQuery( document ).ready(function() {
 		order: [[ 1, "asc" ]],
 		columnDefs: wine_col_defs,
 		rowReorder: {
-            selector: 'td:nth-child(5)'
+            selector: 'td:nth-child(7)'
         },
         responsive: true
 	});
@@ -162,27 +162,25 @@ function runSearchResponse(h)
 			var wines	= hash['wine_results'];
 			var wine	= {};
 			var revs	= {};
-			var revarr	= [];
 			var revstr	= "";
 			var img		= "";
 			var avlstr	= "";
 			for(var i = 0; i < wines.length; i++)
 			{
 				//resetting to blank here
-				revstr	= "";
+				revstr	= "<ul class='condition'>";
 				img		= "";
 				avlstr	= "";
 				wine	= wines[i];
 
 				if(FUSION.get.objSize(wine['reviews']) > 0)
 				{
-					revarr = [];
 					revs = wine['reviews'];
 					for(var rev in revs) {
-						revarr.push("<span class='score_label'>" + rev.toString() + "</span><span class='score'>" + revs[rev] + "</span>");
+						revstr += "<li class='score_wrapper'><span class='score_label'>" + rev.toString() + "</span><span class='score'>" + revs[rev] + "</span></li>";
 					}
-					revstr = revarr.join("<br>");
 				}
+				revstr += "</ul>";
 
 				img = wine['thumb'].match(/^\/(assets)/) ? site + wine['thumb'] : wine['thumb'];
 
@@ -200,10 +198,10 @@ function runSearchResponse(h)
 					wine['details']['region'] + "<br>" + wine['details']['varietal'] + "<br>" + wine['details']['size'] + "<br>" + wine['details']['vintage']
 				] ).draw( false ).node();
 				$( rowNode ).find('td').eq(0).addClass('img_td_class');
-				$( rowNode ).find('td').eq(2).addClass('vintg_td_class');
-				$( rowNode ).find('td').eq(3).addClass('price_td_class');
+				$( rowNode ).find('td').eq(2).addClass('td_class');
+				$( rowNode ).find('td').eq(3).addClass('td_class');
 				$( rowNode ).find('td').eq(4).addClass('score_td_class');
-				$( rowNode ).find('td').eq(5).addClass('avail_td_class');
+				$( rowNode ).find('td').eq(5).addClass('td_class');
 			}
 		}
 	}

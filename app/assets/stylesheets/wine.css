@@ -120,8 +120,14 @@ p {
 	text-align:center;
 }
 
+.label_header {
+	width:70px !important;
+	max-width:70px !important;
+	text-align:center;
+}
+
 .img_td_class {
-	max-width:120px !important;
+	max-width:70px !important;
 	text-align:center;
 }
 
@@ -130,41 +136,50 @@ p {
 	text-align:center;
 }
 
-.vintg_td_class {
-	text-align:center;
-}
-
-.price_td_class {
-	text-align:center;
-}
-
-.avail_td_class {
+.td_class {
 	text-align:center;
 }
 
 .wine_image {
-	width:100px;
+	width:60px;
+}
+
+.condition {
+	display: inline;
+	font-size: 10px;
+	list-style: outside none none;
+	margin: 0;
+	padding: 0;
+	width:68px;
+	height:19px;
+	position:relative;
+	left:37%;
+}
+
+.condition li {
+	margin-bottom: 5px;
+}
+
+.score_wrapper {
+	border: 1px solid #A9A69F;
+	width:68px;
+	height: 19px;
+    border-bottom: 1px solid #A9A69F !important;
+	padding-top:0px !important;
 }
 
 .score_label {
-    display: inline-block;
-    vertical-align: middle;
-    zoom: 1;
+	background: #a9a69f none repeat scroll 0 0;
     color: #fff;
-    background: #a9a69f;
-    width: 30px;
+    display: inline-block;
+    padding: 2px 4px;
     text-align: center;
-    border: 1px solid #a9a69f;
-    padding: 1px 4px;
-    font-size: 10px;
+    vertical-align: middle;
+    width: 40px;
 }
 
 .score {
-/* 	margin-left: -3px; */
-    border-left: 0 !important;
-    padding: 2px 7px 2px 6px;
-    border: 1px solid #a9a69f;
-    font-size: 10px;
+    padding: 2px 8px 4px 6px;
 }
 
 .altbc {
@@ -253,11 +268,17 @@ p {
 	.bootstrap-select {
     	width: 160px !important;
 	}
+	.condition {
+		left:27%;
+	}
 }
 
 @media (min-width : 481px) and (max-width : 767px) {
 	h3 {
 		font-size:30px;
+	}
+	.condition {
+		left:17%;
 	}
 
 	.search_form {
@@ -276,7 +297,9 @@ p {
 	h3 {
 		font-size:20px;
 	}
-
+	.condition {
+		left:0%;
+	}
 	.search_form {
 		margin-top: -20px;
 		width:150px;
