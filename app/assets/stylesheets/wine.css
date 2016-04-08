@@ -176,6 +176,8 @@ p {
     text-align: center;
     vertical-align: middle;
     width: 40px;
+	position:relative;
+	left:-1px;
 }
 
 .score {
