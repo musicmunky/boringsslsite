@@ -198,9 +198,10 @@ p {
 	float:left;
 	width:100%;
 	text-align:center;
-	line-height:30px;
-	height:30px;
-	font-size:18px;
+	line-height:24px;
+	height:24px;
+	font-size:14px;
+	font-weight:bold;
 	color:#444;
 }
 
@@ -214,31 +215,6 @@ p {
 	height:50px;
 	font-size:18px;
 	color:#444;
-}
-
-.entrypeople {
-	line-height: 20px;
-    margin-top: 9px;
-    height: 20px;
-    margin-left: 10px;
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-    font-family: Trebuchet MS;
-    background-color: #EEE;
-}
-
-.schedule_note {
-	margin-top:10px;
-	margin-bottom:5px;
-	padding-left:5px;
-	background-color:#fff;
-	color:#222;
-	border: 1px solid #ddd;
-	-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,200,.07);
-	box-shadow: 0 1px 2px 0 rgba(0,0,200,.07);
-	padding:12px;
 }
 
 .field {
@@ -265,11 +241,11 @@ p {
 .h100fl { height:100%; float:left; }
 
 /* @media (max-width: 767px) {	#main { width:100%;padding:10px;margin-top:100px; }} */
-/* ipad */
-/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
 	img { max-width: 100%; }
 }*/
 
+/* ipad */
 @media (min-width : 768px) and (max-width : 1024px) {
 	.btn-group,
 	.bootstrap-select {
@@ -277,6 +253,14 @@ p {
 	}
 	.condition {
 		left:27%;
+		float: left;
+		position: relative;
+		width: 100%;
+	}
+	.condition li {
+		margin-bottom: 5px;
+		display: inline-block;
+		margin-right: 3px;
 	}
 }
 
@@ -284,8 +268,19 @@ p {
 	h3 {
 		font-size:30px;
 	}
+
 	.condition {
 		left:17%;
+		float: left;
+		top: -18px;
+		position: relative;
+		width: 100%;
+	}
+
+	.condition li {
+		margin-bottom: 5px;
+		display: inline-block;
+		margin-right: 3px;
 	}
 
 	.search_form {
@@ -304,9 +299,23 @@ p {
 	h3 {
 		font-size:20px;
 	}
+	.dtr-title {
+		visibility:hidden !important;
+	}
 	.condition {
 		left:0%;
+		float: left;
+		top: -18px;
+		position: relative;
+		width: 100%;
+
 	}
+	.condition li {
+		margin-bottom: 5px;
+		display: inline-block;
+		margin-right: 3px;
+	}
+
 	.search_form {
 		margin-top: -20px;
 		width:150px;

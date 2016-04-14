@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 	require 'wine_request'
 
 	def wine
+#		puts "PARAMS: #{params.to_s}"  # may possibly put in direct link creation and queries via link...we'll see
 	end
 
 	def searchWines
