@@ -96,14 +96,8 @@ function runParamSearch()
 		}
 
 		var price_str = "";
-		if(!FUSION.lib.isBlank(prcL)) {
-			prcL = parseInt(prcL) * 100;
-		}
-		if(!FUSION.lib.isBlank(prcH)) {
-			prcH = parseInt(prcH) * 100;
-		}
-		prcL = FUSION.lib.isBlank(prcL) ? "*" : prcL;
-		prcH = FUSION.lib.isBlank(prcH) ? "*" : prcH;
+		prcL = !FUSION.lib.isBlank(prcL) ? parseInt(prcL) * 100 : "*";
+		prcH = !FUSION.lib.isBlank(prcH) ? parseInt(prcH) * 100 : "*";
 		if(prcL == prcH && prcL == "*") {
 			price_str = "";
 		}
@@ -188,7 +182,7 @@ function runSearchResponse(h)
 				if(FUSION.lib.isBlank(wine['in_stock'])) {
 					avlstr = wine['available'];
 				}
-				var rowNode = tbl.row.add( [
+				var rowNode = tbl.row.add([
 					"<img class='wine_image' src='" + img + "' />",
 					"<a href='http://www.benchmarkwine.com" + wine['link'] + "' target='_blank'>" + wine['name'] + "</a>",
 					wine['details']['vintage'],
@@ -196,7 +190,7 @@ function runSearchResponse(h)
 					revstr,
 					avlstr,
 					wine['details']['region'] + "<br>" + wine['details']['varietal'] + "<br>" + wine['details']['size'] + "<br>" + wine['details']['vintage']
-				] ).draw( false ).node();
+				]).draw( false ).node();
 				$( rowNode ).find('td').eq(0).addClass('img_td_class');
 				$( rowNode ).find('td').eq(2).addClass('td_class');
 				$( rowNode ).find('td').eq(3).addClass('td_class');
