@@ -3,6 +3,14 @@ class PagesController < ApplicationController
 
 	def wine
 #		puts "PARAMS: #{params.to_s}"  # may possibly put in direct link creation and queries via link...we'll see
+		@ipaddr = ""
+		begin
+			@ipaddr = request.remote_ip
+		rescue
+			@ipaddr = "---- error determining remote ip address ----"
+		ensure
+			Rails.logger.debug("\nOriginating IP Address of Request is #{@ipaddr}\n")
+		end
 	end
 
 	def searchWines
