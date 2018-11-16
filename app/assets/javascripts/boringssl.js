@@ -1,5 +1,13 @@
-function sendToGoogle() {
- 	window.location = "https://boringssl.googlesource.com/boringssl/";
+
+function startTimer()
+{
+    var seconds = 5;
+    setInterval(function () {
+        if (--seconds < 1) {
+            window.location = "https://boringssl.googlesource.com/boringssl/";
+        }
+        document.getElementById("time").innerHTML = seconds;
+    }, 1000);
 }
 
 function calc(v) {

@@ -8,7 +8,7 @@
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
-	<body onLoad="setTimeout('sendToGoogle()', 5000)">
+	<body onLoad="startTimer()">
 		<div id="main">
 
 <%= javascript_tag do  %>
@@ -22,7 +22,7 @@ ga('send', 'pageview');
 <% end %>
 
 			<h3>Looking for BoringSSL?</h3>
-			<p>This page will redirect you to the Google Code page for their BoringSSL project in 5 seconds</p>
+			<p>This page will redirect you to the Google Code page for their BoringSSL project in <span id="time">5</span> seconds</p>
 			<p>If you don't want to wait, or have javascript disabled, click <a href="https://boringssl.googlesource.com/boringssl/">here</a> to go there now</p>
 			<div class="showbox">
 				<div class="loader">
