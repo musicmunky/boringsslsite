@@ -96,8 +96,8 @@ function runParamSearch()
 		}
 
 		var price_str = "";
-		prcL = !FUSION.lib.isBlank(prcL) ? parseInt(prcL) * 100 : "*";
-		prcH = !FUSION.lib.isBlank(prcH) ? parseInt(prcH) * 100 : "*";
+		prcL = !FUSION.lib.isBlank(prcL) ? parseInt(prcL) : "*";
+		prcH = !FUSION.lib.isBlank(prcH) ? parseInt(prcH) : "*";
 		if(prcL == prcH && prcL == "*") {
 			price_str = "";
 		}
@@ -121,6 +121,7 @@ function runParamSearch()
 		var info = {
 			"type": "POST",
 			"path": "/pages/1/searchWines",
+            "timeout": 120000,
 			"data": {
 				"type":			"parameter",
 				"varietal":		(vrtl == "All" || vrtl == "all") ? "" : vrtl.toLowerCase(),

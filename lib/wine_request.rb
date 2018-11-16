@@ -36,7 +36,7 @@ class WineRequest
 					:utf8 => "✓",
 					:search		=> search_params['search'],
 					:per_page	=> "100",
-					:sort_by	=> "a_to_z"
+					:sort_by	=> "name-asc"
 				}
 			else
 				params = {
@@ -44,12 +44,12 @@ class WineRequest
 					:varietal		=> search_params['varietal'],
 					:country		=> search_params['country'],
 					:region			=> search_params['region'],
-					:scores			=> search_params['scores'],
-					:price_range	=> search_params['price_range'],
-					:size			=> search_params['size'],
+					:score			=> search_params['scores'],
+					:price      	=> search_params['price_range'],
+					:bottle_size	=> search_params['size'],
 					:vintage		=> search_params['vintage'],
 					:per_page		=> "100",
-					:sort_by		=> "a_to_z"
+					:sort_by		=> "name-asc"
 				}
 			end
 
